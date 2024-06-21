@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
-import { listadoUrls } from './ListadoUrlProductos';
+const { listadoUrls } = require('./ListadoUrlProductos');
 
 const jsonFilePath = path.resolve(__dirname, 'productList.json');
 
@@ -73,36 +73,44 @@ async function updateProductList(product) {
     }
 
     // Verificar si el producto ya existe
-    const currentProduct = products.find(p => p.id === product.id);
+    let productInJson = products.find(p => p.id === product.id);
 
-    if (currentProduct) {
-      // Llamar a la función checkPrice si el producto ya existe
-      checkPrice(currentProduct, product);
+    if (productInJson) {
+      if (productInJson.currentPrice != product.currentPrice) {
+        console.log(`El valor del producto ${productInJson.title} cambio !`);
+        sendEmail();
+        console.log(`Actualizando el valor del json del producto ${productInJson.title}`);        
+
+         // Encontrar el índice del producto existente con el mismo id
+        let index = products.findIndex(p => p.id === product.id);
+
+        if (index !== -1) {
+          // Reemplazar el producto existente
+          products[index] = product;
+        } else {
+          // Agregar el nuevo producto a la lista
+          products.push(product);
+        }
+
+        // Escribir los datos actualizados de vuelta en el archivo JSON
+        fs.writeFileSync(jsonFilePath, JSON.stringify(products, null, 2), 'utf-8');
+      }
     } else {
       // Agregar el nuevo producto al array
       products.push(product);
-      console.log('Producto nuevo agregado:', product);
+
+      // Escribir los datos actualizados de vuelta en el archivo JSON
+      fs.writeFileSync(jsonFilePath, JSON.stringify(products, null, 2), 'utf-8');
+      console.log(`Archivo productList.json actualizado con nuevo producto ${product.id}`);
     }
 
-    // Escribir los datos actualizados de vuelta en el archivo JSON
-    fs.writeFileSync(jsonFilePath, JSON.stringify(products, null, 2), 'utf-8');
-    console.log('Archivo productList.json actualizado.');
   } catch (error) {
     console.error('Error updating product list:', error);
   }
 }
-function updateJson(product) {
-  // Escribir los datos actualizados de vuelta en el archivo JSON
-  fs.writeFileSync(jsonFilePath, JSON.stringify(product, null, 2), 'utf-8');
-}
 
-// Función checkPrice (defínela según tus necesidades)
-function checkPrice(currentProduct, newProduct) {
-  if (currentProduct.price != newProduct.price) {
-    console.log(`El valor del producto ${currentProduct.title} cambio !`);
-    console.log('Enviando email');
-    updateJson(newProduct);
-  }
+function sendEmail(){
+  console.log('Enviando email');
 }
 
 function cleanAndParseValue(price) {
