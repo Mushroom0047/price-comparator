@@ -5,8 +5,13 @@ const { listadoUrls } = require('./ListadoUrlProductos');
 
 const jsonFilePath = path.resolve(__dirname, 'productList.json');
 
+const sendEmail = require('./sendEmail');
+
+const toEmail = 'hectorvaldesm47@gmail.com';
+const subject = 'Alerta Cambio de precio en lk.cl';
+let htmlContent = '';
+
 async function getProductPrice(url) {
-  let finalPrice = 0;
   let id = 0;
   let currentDate = generateCurrentDate();
 
@@ -78,7 +83,9 @@ async function updateProductList(product) {
     if (productInJson) {
       if (productInJson.currentPrice != product.currentPrice) {
         console.log(`El valor del producto ${productInJson.title} cambio !`);
-        sendEmail();
+
+        sendingEmail(product, productInJson);
+        
         console.log(`Actualizando el valor del json del producto ${productInJson.title}`);        
 
          // Encontrar el índice del producto existente con el mismo id
@@ -109,7 +116,18 @@ async function updateProductList(product) {
   }
 }
 
-function sendEmail(){
+function sendingEmail(productNewData, productDataJson){
+  let valueNewData = clpConverter(productNewData.currentPrice);
+  let valueJsonData = clpConverter(productDataJson.currentPrice);
+
+  htmlContent = `
+  <h1>Hola Héctor!</h1>
+  <p>El producto ${productNewData.title} cambio de valor.
+  Paso de estar a <b>${valueJsonData}</b> a <b>${valueNewData}</b></p>
+  <br>
+  <p>Puedes revisarlo en el siguiente link ${productNewData.url}</p>
+  `;
+  sendEmail(toEmail, subject, htmlContent);
   console.log('Enviando email');
 }
 
@@ -117,6 +135,17 @@ function cleanAndParseValue(price) {
   let cleanValue = price.replace(/[^\d.,]/g, '').trim();
   let floatValue = parseFloat(cleanValue.replace('.', ''));
   return floatValue;
+}
+
+function clpConverter(value) {
+  // Convertir el valor a una cadena
+    let valueStr = value.toString();
+
+    // Utilizar una expresión regular para agregar los puntos de mil
+    valueStr = valueStr.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+    // Retornar el valor formateado con el símbolo de pesos chilenos
+    return `$${valueStr} CLP`;
 }
 
 function generateCurrentDate(){
