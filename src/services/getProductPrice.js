@@ -12,7 +12,8 @@ async function getProductPrice(url) {
   
     try {
       const browser = await puppeteer.launch({
-        headless: true, // Ejecuta en modo sin cabeza
+        headless: true,
+        executablePath: puppeteer.executablePath(), // Asegura que Puppeteer use la ruta correcta de Chrome
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox'
