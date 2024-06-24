@@ -2,18 +2,19 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
-const generateCurrentDate = require('./src/utils/generateCurrentDate');
-const clpConverter = require('./src/utils/clpConverter'); 
-const cleanAndParseValue = require('./src/utils/cleanAndParseValue'); 
-const sendEmail = require('./src/services/sendEmail');
+const { generateCurrentDate } = require('./src/utils/generateCurrentDate'); 
+const { cleanAndParseValue } = require('./src/utils/cleanAndParseValue'); 
+const { sendEmailToUser } = require('./src/services/sendEmail');
+const { createLogMessage } = require('./src/utils/createLog');
 
-const jsonFilePath = path.resolve(__dirname, 'productList.json');
-let htmlContent = '';
+const jsonFilePath = path.resolve(__dirname, 'src', 'assets', 'productList.json');
 
 async function getProductPrice(url) {
+  createLogMessage('Inicio de la funcion getProductPrice');
   let id = 0;
   let currentDate = generateCurrentDate();
-  let parcedPrice = 0;
+  let parcedPrice = null;
+  let product = null;
 
   try {
     const browser = await puppeteer.launch();
@@ -39,21 +40,21 @@ async function getProductPrice(url) {
       return null; // Retorna null si no encuentra ningún elemento con $
     });
 
-
     if (productPrice) {
       parcedPrice = cleanAndParseValue(productPrice);
       id = url.split('=')[1];
-    } else {
-      console.log('Error: no existe el valor');
-    }
 
-    //Generar json para almacenar
-    let product = {
-      id: id,
-      title: title,
-      currentPrice: parcedPrice,
-      url: url,
-      date: currentDate,
+      //Generar json para almacenar
+      product = {
+        id: id,
+        title: title,
+        currentPrice: parcedPrice,
+        url: url,
+        date: currentDate,
+      }
+    } else {
+      product = null;
+      createLogMessage('No se pudo obtener el precio del producto: productPrice = null');
     }
 
     await browser.close();
@@ -61,13 +62,16 @@ async function getProductPrice(url) {
     return product;
 
   } catch (error) {
-    console.error('Error fetching the product price:', error);
+    createLogMessage(`Error al conectarse a la web: ${error}`);
   }
+
+  createLogMessage('Fin de la funcion getProductPrice');
 }
 
 // Función para comprobar y actualizar el archivo JSON
 async function updateProductList(product) {
   try {
+    createLogMessage('Inicia función updateProductList');
     // Leer el archivo JSON
     let products = [];
     if (fs.existsSync(jsonFilePath)) {
@@ -75,6 +79,8 @@ async function updateProductList(product) {
       if (data.trim().length > 0) {
         products = JSON.parse(data);
       }
+    }else{
+      createLogMessage('Error: no existe el archivo en el directoriio')
     }
 
     // Verificar si el producto ya existe
@@ -82,15 +88,9 @@ async function updateProductList(product) {
 
     if (productInJson) {
       if (productInJson.currentPrice != product.currentPrice) {
-        console.log(`El valor del producto ${productInJson.title} cambio !`);
-
-        sendingEmail(product, productInJson);
-        
-        console.log(`Actualizando el valor del json del producto ${productInJson.title}`);        
-
-         // Encontrar el índice del producto existente con el mismo id
+        // Encontrar el índice del producto existente con el mismo id
         let index = products.findIndex(p => p.id === product.id);
-
+        
         if (index !== -1) {
           // Reemplazar el producto existente
           products[index] = product;
@@ -98,9 +98,13 @@ async function updateProductList(product) {
           // Agregar el nuevo producto a la lista
           products.push(product);
         }
-
+        
         // Escribir los datos actualizados de vuelta en el archivo JSON
         fs.writeFileSync(jsonFilePath, JSON.stringify(products, null, 2), 'utf-8');
+        createLogMessage(`El valor del producto ${productInJson.title} se modifico correctamente`);
+
+        //Enviar email con notificación
+        sendEmailToUser(product, productInJson);       
       }
     } else {
       // Agregar el nuevo producto al array
@@ -108,35 +112,22 @@ async function updateProductList(product) {
 
       // Escribir los datos actualizados de vuelta en el archivo JSON
       fs.writeFileSync(jsonFilePath, JSON.stringify(products, null, 2), 'utf-8');
-      console.log(`Archivo productList.json actualizado con nuevo producto ${product.id}`);
+      createLogMessage(`El producto se agrego al listado correctamente: id de producto = ${product.id}`);
     }
 
   } catch (error) {
-    console.error('Error updating product list:', error);
+    createLogMessage(`Algo anda mal con la función updateProductList: ${error}`);
   }
-}
-
-function sendingEmail(productNewData, productDataJson){
-  let valueNewData = clpConverter(productNewData.currentPrice);
-  let valueJsonData = clpConverter(productDataJson.currentPrice);
-
-  htmlContent = `
-  <h1>Hola Héctor!</h1>
-  <p>El producto ${productNewData.title} cambio de valor.
-  Paso de estar a <b>${valueJsonData}</b> a <b>${valueNewData}</b></p>
-  <br>
-  <p>Puedes revisarlo en el siguiente link ${productNewData.url}</p>
-  `;
-  sendEmail(htmlContent);
-  console.log('Enviando email');
+  createLogMessage('Fin de la funcion updateProductList');
 }
 
 (async () => {
+  createLogMessage('Inicio de script');
   for (const url of listadoUrls) {
-    const product = await getProductPrice(url);
-    if (product) {
-      await updateProductList(product);
+    const productData = await getProductPrice(url);
+    if (productData) {
+      await updateProductList(productData);
     }
   }
-  console.log("Script ejecutado correctamente");
+  createLogMessage("El Script termino de ejecutarse \n-------------------------------------------");
 })();
