@@ -24,7 +24,7 @@ async function main(){
 }
 
 // Programar la tarea para ejecutarse cada 5 minutos
-cron.schedule('*/5 * * * *', async () => {
+cron.schedule('*/30 * * * *', async () => {
   await main();
 });
 

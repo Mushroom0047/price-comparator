@@ -11,7 +11,13 @@ async function getProductPrice(url) {
     let product = null;
   
     try {
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({
+        headless: true, // Ejecuta en modo sin cabeza
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox'
+        ]
+      });
       const page = await browser.newPage();
   
       await page.goto(url);
