@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 const { listadoUrls } = require('./ListadoUrlProductos');
 
 const jsonFilePath = path.resolve(__dirname, 'productList.json');
+const logFilePath = path.resolve(__dirname, 'log.txt');
 
 const sendEmail = require('./sendEmail');
 
@@ -14,9 +15,13 @@ let htmlContent = '';
 async function getProductPrice(url) {
   let id = 0;
   let currentDate = generateCurrentDate();
+  let parcedPrice = 0;
 
   try {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser', // Ruta al navegador instalado
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
     const page = await browser.newPage();
 
     await page.goto(url);
@@ -41,7 +46,7 @@ async function getProductPrice(url) {
 
 
     if (productPrice) {
-      parcerPrice = cleanAndParseValue(productPrice);
+      parcedPrice = cleanAndParseValue(productPrice);
       id = url.split('=')[1];
     } else {
       console.log('Error: no existe el valor');
@@ -51,7 +56,7 @@ async function getProductPrice(url) {
     let product = {
       id: id,
       title: title,
-      currentPrice: parcerPrice,
+      currentPrice: parcedPrice,
       url: url,
       date: currentDate,
     }
@@ -158,6 +163,12 @@ function generateCurrentDate(){
 
   let formattedDate = `${day}/${month}/${year}`;
   return formattedDate;
+}
+
+function logMessage(message) {
+  const timestamp = new Date().toISOString();
+  const log = `${timestamp} - ${message}\n`;
+  fs.appendFileSync(logFilePath, log, 'utf-8');
 }
 
 (async () => {
