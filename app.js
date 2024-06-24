@@ -1,15 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
-const { listadoUrls } = require('./ListadoUrlProductos');
+const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
+const generateCurrentDate = require('./src/utils/generateCurrentDate');
+const clpConverter = require('./src/utils/clpConverter'); 
+const cleanAndParseValue = require('./src/utils/cleanAndParseValue'); 
+const sendEmail = require('./src/services/sendEmail');
 
 const jsonFilePath = path.resolve(__dirname, 'productList.json');
-const logFilePath = path.resolve(__dirname, 'log.txt');
-
-const sendEmail = require('./sendEmail');
-
-const toEmail = 'hectorvaldesm47@gmail.com';
-const subject = 'Alerta Cambio de precio en lk.cl';
 let htmlContent = '';
 
 async function getProductPrice(url) {
@@ -18,10 +16,7 @@ async function getProductPrice(url) {
   let parcedPrice = 0;
 
   try {
-    const browser = await puppeteer.launch({
-      executablePath: '/usr/bin/chromium-browser', // Ruta al navegador instalado
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     await page.goto(url);
@@ -132,43 +127,8 @@ function sendingEmail(productNewData, productDataJson){
   <br>
   <p>Puedes revisarlo en el siguiente link ${productNewData.url}</p>
   `;
-  sendEmail(toEmail, subject, htmlContent);
+  sendEmail(htmlContent);
   console.log('Enviando email');
-}
-
-function cleanAndParseValue(price) {
-  let cleanValue = price.replace(/[^\d.,]/g, '').trim();
-  let floatValue = parseFloat(cleanValue.replace('.', ''));
-  return floatValue;
-}
-
-function clpConverter(value) {
-  // Convertir el valor a una cadena
-    let valueStr = value.toString();
-
-    // Utilizar una expresión regular para agregar los puntos de mil
-    valueStr = valueStr.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-    // Retornar el valor formateado con el símbolo de pesos chilenos
-    return `$${valueStr} CLP`;
-}
-
-function generateCurrentDate(){
-  let currentDate = new Date();
-
-  // Formatear la fecha al estilo DD/MM/YYYY
-  let day = String(currentDate.getDate()).padStart(2, '0');
-  let month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Los meses en JavaScript son de 0 a 11
-  let year = currentDate.getFullYear();
-
-  let formattedDate = `${day}/${month}/${year}`;
-  return formattedDate;
-}
-
-function logMessage(message) {
-  const timestamp = new Date().toISOString();
-  const log = `${timestamp} - ${message}\n`;
-  fs.appendFileSync(logFilePath, log, 'utf-8');
 }
 
 (async () => {
@@ -178,4 +138,5 @@ function logMessage(message) {
       await updateProductList(product);
     }
   }
+  console.log("Script ejecutado correctamente");
 })();

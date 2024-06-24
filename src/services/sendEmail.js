@@ -1,4 +1,8 @@
 const { createTransport } = require('nodemailer');
+const toEmail = 'hectorvaldesm47@gmail.com';
+const subject = 'Alerta Cambio de precio en lk.cl';
+
+
 require('dotenv').config();
 
 const apiKey = process.env.BREVO_API_KEY;
@@ -13,7 +17,7 @@ const transporter = createTransport({
 });
 
 
-const sendEmail = async (toEmail, subject, htmlContent) => {
+const sendEmail = async (htmlContent) => {
     const mailOptions = {
       from: 'Mushroom_bot@gmail.com',
       to: toEmail,
