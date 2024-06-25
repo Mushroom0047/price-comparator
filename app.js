@@ -32,11 +32,6 @@ async function main() {
   }
 }
 
-// Programar la tarea para ejecutarse cada 30 minutos
-cron.schedule('*/30 * * * *', async () => {
-  await main();
-});
-
 // Ejecutar la función inmediatamente al iniciar
 (async () => {
   await main();
