@@ -1,4 +1,3 @@
-const cron = require('node-cron');
 const { updateProductList } = require('./src/services/updateProductList');
 const { getProductPrice } = require('./src/services/getProductPrice');
 const { createLogMessage } = require('./src/utils/createLog');
