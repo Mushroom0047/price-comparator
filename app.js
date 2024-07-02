@@ -5,10 +5,10 @@ const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
 const { createBrowser } = require('./src/services/createBrowser');
 
 async function main() {
+  const browser = await createBrowser();
+  
   try {
     createLogMessage('Inicio de script');
-    const browser = await createBrowser();
-    
     // Map para crear un array de promesas
     const promises = listadoUrls.map(async (url) => {
       

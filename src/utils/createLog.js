@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const logFilePath = path.resolve(__dirname, 'log.txt');
+const logFilePath = path.resolve(__dirname, '../Logs/log.txt');
 
 function createLogMessage(message) {
     const timestamp = new Date().toISOString();
