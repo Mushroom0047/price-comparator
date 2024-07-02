@@ -5,9 +5,10 @@ const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
 const { createBrowser } = require('./src/services/createBrowser');
 
 async function main() {
-  const browser = await createBrowser();
+  let browser;
   
   try {
+    browser = await createBrowser();
     createLogMessage('Inicio de script');
     // Map para crear un array de promesas
     const promises = listadoUrls.map(async (url) => {
@@ -29,10 +30,11 @@ async function main() {
     await browser.close();
     createLogMessage("El Script terminó de ejecutarse \n-------------------------------------------");
   } catch (error) {
-    if(browser){
+    createLogMessage(`Error en main: ${error.message}`);
+  }finally {
+    if (browser) {
       await browser.close();
     }
-    createLogMessage(`Error en main: ${error.message}`);
   }
 }
 
