@@ -1,16 +1,58 @@
 [
   {
-    "id": "14065",
-    "title": "U6+. UBIQUITI 2x2 WiFi6 2400/570mbps-5/2,4Ghz 5dBi 23dBm req-PoE48af 1-1000",
-    "currentPrice": 1286830,
-    "url": "https://lk.cl/#!/Producto=14065",
-    "date": "24/06/2024"
+    "id": "7392",
+    "title": "UAP-AC-LITE. UBIQUITI 1un 2x2 867mbps-5Ghz 300-2,4GHz 3dBi inc-PoE24V 1-1000 AC1200",
+    "currentPrice": 153510,
+    "url": "https://lk.cl/#!/Producto=7392",
+    "date": "01/07/2024"
   },
   {
-    "id": "13913",
-    "title": "UDR. UBIQUITI WiFi6 4-1000(2-PoE 1-WAN mSD UniFi Cloud Gateway Dream Router",
-    "currentPrice": 435540,
-    "url": "https://lk.cl/#!/Producto=13913",
-    "date": "24/06/2024"
+    "id": "7396",
+    "title": "UAP-AC-PRO. UBIQUITI 1u 3x3 2-1000 1300mbps-5GHz 450-2,4GHz 3dBi inc-PoE48V AC1750",
+    "currentPrice": 266560,
+    "url": "https://lk.cl/#!/Producto=7396",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "13665",
+    "title": "U6-LITE. UBIQUITI 2x2 WiFi6 1200/300mbps-5/2,4Ghz 3dBi 23dBm req-PoE48af 1-1000",
+    "currentPrice": 196350,
+    "url": "https://lk.cl/#!/Producto=13665",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "13749",
+    "title": "U6-PRO. UBIQUITI 4x2 1-1000 WiFi6 4800/573mbps-5/2,4GHz 6/4dBi req-PoE48at/13W",
+    "currentPrice": 309400,
+    "url": "https://lk.cl/#!/Producto=13749",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "13351",
+    "title": "UDM-PRO. UBIQUITI 9-1000 2-WAN 2-SFP+10G 1U-Rack 240VAC/USP UniFi Cloud Gateway",
+    "currentPrice": 775880,
+    "url": "https://lk.cl/#!/Producto=13351",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "13674",
+    "title": "U6-LR. UBIQUITI 4x4 WiFi6 2400/600mbps-5/2,4GHz 6/4dBi req-PoE48at/17W 1-1000",
+    "currentPrice": 359380,
+    "url": "https://lk.cl/#!/Producto=13674",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "13872",
+    "title": "UDM-SE. UBIQUITI 128GB 8-1000-PoE 1-2500 2-SFP+10G USP UniFi Cloud Gateway NVR",
+    "currentPrice": 967470,
+    "url": "https://lk.cl/#!/Producto=13872",
+    "date": "01/07/2024"
+  },
+  {
+    "id": "14065",
+    "title": "U6+. UBIQUITI 2x2 WiFi6 2400/570mbps-5/2,4Ghz 5dBi 23dBm req-PoE48af 1-1000",
+    "currentPrice": 186830,
+    "url": "https://lk.cl/#!/Producto=14065",
+    "date": "01/07/2024"
   }
 ]

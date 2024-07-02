@@ -4,7 +4,7 @@ const { createLogMessage } = require('../utils/createLog');
 const puppeteer = require('puppeteer');
 
 async function getProductPrice(url) {
-    createLogMessage('Inicio de la funcion getProductPrice');
+    createLogMessage(`Inicio de la funcion getProductPrice para: ${url}`);
     let id = 0;
     let currentDate = generateCurrentDate();
     let parcedPrice = null;
@@ -55,7 +55,7 @@ async function getProductPrice(url) {
         }
       } else {
         product = null;
-        createLogMessage('No se pudo obtener el precio del producto: productPrice = null');
+        createLogMessage(`No se pudo obtener el precio del producto: productPrice: ${product}`);
       }
   
       await browser.close();

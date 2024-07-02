@@ -1,1 +1,44 @@
 
+2024-07-01T16:59:08.165Z - Inicio de script
+2024-07-01T16:59:08.167Z - Procesando URL: https://lk.cl/#!/Producto=14065
+2024-07-01T16:59:08.167Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.171Z - Procesando URL: https://lk.cl/#!/Producto=13749
+2024-07-01T16:59:08.171Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.172Z - Procesando URL: https://lk.cl/#!/Producto=13674
+2024-07-01T16:59:08.173Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.174Z - Procesando URL: https://lk.cl/#!/Producto=13665
+2024-07-01T16:59:08.174Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.175Z - Procesando URL: https://lk.cl/#!/Producto=7396
+2024-07-01T16:59:08.175Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.190Z - Procesando URL: https://lk.cl/#!/Producto=7392
+2024-07-01T16:59:08.190Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.191Z - Procesando URL: https://lk.cl/#!/Producto=13351
+2024-07-01T16:59:08.191Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:08.192Z - Procesando URL: https://lk.cl/#!/Producto=13872
+2024-07-01T16:59:08.192Z - Inicio de la funcion getProductPrice
+2024-07-01T16:59:20.731Z - Inicia función updateProductList
+2024-07-01T16:59:20.732Z - El producto se agrego al listado correctamente: id de producto = 7392
+2024-07-01T16:59:20.732Z - Fin de la funcion updateProductList
+2024-07-01T16:59:20.787Z - Inicia función updateProductList
+2024-07-01T16:59:20.790Z - El producto se agrego al listado correctamente: id de producto = 7396
+2024-07-01T16:59:20.790Z - Fin de la funcion updateProductList
+2024-07-01T16:59:20.810Z - Inicia función updateProductList
+2024-07-01T16:59:20.810Z - El producto se agrego al listado correctamente: id de producto = 13665
+2024-07-01T16:59:20.811Z - Fin de la funcion updateProductList
+2024-07-01T16:59:20.813Z - Inicia función updateProductList
+2024-07-01T16:59:20.814Z - El producto se agrego al listado correctamente: id de producto = 13749
+2024-07-01T16:59:20.815Z - Fin de la funcion updateProductList
+2024-07-01T16:59:20.832Z - Inicia función updateProductList
+2024-07-01T16:59:20.832Z - El producto se agrego al listado correctamente: id de producto = 13351
+2024-07-01T16:59:20.833Z - Fin de la funcion updateProductList
+2024-07-01T16:59:21.571Z - Inicia función updateProductList
+2024-07-01T16:59:21.573Z - El producto se agrego al listado correctamente: id de producto = 13674
+2024-07-01T16:59:21.573Z - Fin de la funcion updateProductList
+2024-07-01T16:59:21.594Z - Inicia función updateProductList
+2024-07-01T16:59:21.596Z - El producto se agrego al listado correctamente: id de producto = 13872
+2024-07-01T16:59:21.598Z - Fin de la funcion updateProductList
+2024-07-01T16:59:21.617Z - Inicia función updateProductList
+2024-07-01T16:59:21.617Z - El producto se agrego al listado correctamente: id de producto = 14065
+2024-07-01T16:59:21.618Z - Fin de la funcion updateProductList
+2024-07-01T16:59:21.618Z - El Script termino de ejecutarse 
+-------------------------------------------
