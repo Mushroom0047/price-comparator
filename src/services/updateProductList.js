@@ -7,7 +7,6 @@ const jsonFilePath = path.resolve(__dirname, '..', 'assets', 'productList.json')
 // Función para comprobar y actualizar el archivo JSON
 async function updateProductList(product) {
     try {
-      createLogMessage('Inicia función updateProductList');
       // Leer el archivo JSON
       let products = [];
       if (fs.existsSync(jsonFilePath)) {
@@ -54,7 +53,6 @@ async function updateProductList(product) {
     } catch (error) {
       createLogMessage(`Algo anda mal con la función updateProductList: ${error}`);
     }
-    createLogMessage('Fin de la funcion updateProductList');
   }
 
   module.exports = { updateProductList };

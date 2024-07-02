@@ -42,3 +42,135 @@
 2024-07-01T16:59:21.618Z - Fin de la funcion updateProductList
 2024-07-01T16:59:21.618Z - El Script termino de ejecutarse 
 -------------------------------------------
+2024-07-02T01:18:19.044Z - Inicio de script
+2024-07-02T01:18:19.048Z - Procesando URL: https://lk.cl/#!/Producto=14065
+2024-07-02T01:18:19.048Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=14065
+2024-07-02T01:18:19.050Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.050Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.051Z - Procesando URL: https://lk.cl/#!/Producto=13749
+2024-07-02T01:18:19.051Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13749
+2024-07-02T01:18:19.051Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.051Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.052Z - Procesando URL: https://lk.cl/#!/Producto=13674
+2024-07-02T01:18:19.052Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13674
+2024-07-02T01:18:19.053Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.053Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.053Z - Procesando URL: https://lk.cl/#!/Producto=13665
+2024-07-02T01:18:19.054Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13665
+2024-07-02T01:18:19.054Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.054Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.055Z - Procesando URL: https://lk.cl/#!/Producto=7396
+2024-07-02T01:18:19.055Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7396
+2024-07-02T01:18:19.055Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.055Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.055Z - Procesando URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:18:19.056Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7392
+2024-07-02T01:18:19.056Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.057Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.058Z - Procesando URL: https://lk.cl/#!/Producto=13351
+2024-07-02T01:18:19.058Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13351
+2024-07-02T01:18:19.058Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.059Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.059Z - Procesando URL: https://lk.cl/#!/Producto=13872
+2024-07-02T01:18:19.059Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13872
+2024-07-02T01:18:19.059Z - Error al conectarse a la web: TypeError: browser.newPage is not a function
+2024-07-02T01:18:19.059Z - Fin de la funcion getProductPrice
+2024-07-02T01:18:19.061Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=14065
+2024-07-02T01:18:19.061Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13749
+2024-07-02T01:18:19.061Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13674
+2024-07-02T01:18:19.061Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13665
+2024-07-02T01:18:19.062Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=7396
+2024-07-02T01:18:19.062Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:18:19.062Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13351
+2024-07-02T01:18:19.062Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13872
+2024-07-02T01:19:08.712Z - Inicio de script
+2024-07-02T01:19:10.910Z - Procesando URL: https://lk.cl/#!/Producto=14065
+2024-07-02T01:19:10.910Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=14065
+2024-07-02T01:19:10.912Z - Procesando URL: https://lk.cl/#!/Producto=13749
+2024-07-02T01:19:10.912Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13749
+2024-07-02T01:19:10.913Z - Procesando URL: https://lk.cl/#!/Producto=13674
+2024-07-02T01:19:10.913Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13674
+2024-07-02T01:19:10.914Z - Procesando URL: https://lk.cl/#!/Producto=13665
+2024-07-02T01:19:10.914Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13665
+2024-07-02T01:19:10.915Z - Procesando URL: https://lk.cl/#!/Producto=7396
+2024-07-02T01:19:10.915Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7396
+2024-07-02T01:19:10.916Z - Procesando URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:19:10.916Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7392
+2024-07-02T01:19:10.916Z - Procesando URL: https://lk.cl/#!/Producto=13351
+2024-07-02T01:19:10.917Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13351
+2024-07-02T01:19:10.917Z - Procesando URL: https://lk.cl/#!/Producto=13872
+2024-07-02T01:19:10.917Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13872
+2024-07-02T01:19:16.332Z - Inicia función updateProductList
+2024-07-02T01:19:16.333Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.333Z - Datos actualizados para URL: https://lk.cl/#!/Producto=14065
+2024-07-02T01:19:16.335Z - Inicia función updateProductList
+2024-07-02T01:19:16.335Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.336Z - Datos actualizados para URL: https://lk.cl/#!/Producto=13674
+2024-07-02T01:19:16.337Z - Inicia función updateProductList
+2024-07-02T01:19:16.338Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.338Z - Datos actualizados para URL: https://lk.cl/#!/Producto=13749
+2024-07-02T01:19:16.340Z - Inicia función updateProductList
+2024-07-02T01:19:16.340Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.340Z - Datos actualizados para URL: https://lk.cl/#!/Producto=13665
+2024-07-02T01:19:16.380Z - Inicia función updateProductList
+2024-07-02T01:19:16.381Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.381Z - Datos actualizados para URL: https://lk.cl/#!/Producto=7396
+2024-07-02T01:19:16.512Z - Inicia función updateProductList
+2024-07-02T01:19:16.512Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.513Z - Datos actualizados para URL: https://lk.cl/#!/Producto=13351
+2024-07-02T01:19:16.963Z - Inicia función updateProductList
+2024-07-02T01:19:16.964Z - Fin de la funcion updateProductList
+2024-07-02T01:19:16.964Z - Datos actualizados para URL: https://lk.cl/#!/Producto=13872
+2024-07-02T01:19:17.377Z - Inicia función updateProductList
+2024-07-02T01:19:17.378Z - Fin de la funcion updateProductList
+2024-07-02T01:19:17.378Z - Datos actualizados para URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:19:17.565Z - El Script terminó de ejecutarse 
+-------------------------------------------
+2024-07-02T01:20:21.510Z - Inicio de script
+2024-07-02T01:20:21.636Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=14065
+2024-07-02T01:20:21.638Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13749
+2024-07-02T01:20:21.639Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13674
+2024-07-02T01:20:21.639Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13665
+2024-07-02T01:20:21.640Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7396
+2024-07-02T01:20:21.640Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7392
+2024-07-02T01:20:21.641Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13351
+2024-07-02T01:20:21.642Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13872
+2024-07-02T01:20:24.815Z - Inicia función updateProductList
+2024-07-02T01:20:24.816Z - Fin de la funcion updateProductList
+2024-07-02T01:20:24.819Z - Inicia función updateProductList
+2024-07-02T01:20:24.819Z - Fin de la funcion updateProductList
+2024-07-02T01:20:24.821Z - Inicia función updateProductList
+2024-07-02T01:20:24.821Z - Fin de la funcion updateProductList
+2024-07-02T01:20:25.150Z - Inicia función updateProductList
+2024-07-02T01:20:25.151Z - Fin de la funcion updateProductList
+2024-07-02T01:20:26.032Z - Inicia función updateProductList
+2024-07-02T01:20:26.032Z - Fin de la funcion updateProductList
+2024-07-02T01:20:26.034Z - Inicia función updateProductList
+2024-07-02T01:20:26.035Z - Fin de la funcion updateProductList
+2024-07-02T01:20:26.037Z - Inicia función updateProductList
+2024-07-02T01:20:26.037Z - Fin de la funcion updateProductList
+2024-07-02T01:20:54.802Z - Error al conectarse a la web: TimeoutError: waiting for selector `#DetalleProducto` failed: timeout 30000ms exceeded
+2024-07-02T01:20:54.803Z - Fin de la funcion getProductPrice
+2024-07-02T01:20:54.803Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:20:54.956Z - El Script terminó de ejecutarse 
+-------------------------------------------
+2024-07-02T01:21:16.179Z - Inicio de script
+2024-07-02T01:21:16.299Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=14065
+2024-07-02T01:21:16.301Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13749
+2024-07-02T01:21:16.302Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13674
+2024-07-02T01:21:16.302Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13665
+2024-07-02T01:21:16.303Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7396
+2024-07-02T01:21:16.303Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=7392
+2024-07-02T01:21:16.304Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13351
+2024-07-02T01:21:16.304Z - Inicio de la funcion getProductPrice para: https://lk.cl/#!/Producto=13872
+2024-07-02T01:21:49.427Z - Error al conectarse a la web: TimeoutError: waiting for selector `#DetalleProducto` failed: timeout 30000ms exceeded
+2024-07-02T01:21:49.428Z - Fin de la funcion getProductPrice
+2024-07-02T01:21:49.428Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=13665
+2024-07-02T01:21:49.459Z - Error al conectarse a la web: TimeoutError: waiting for selector `#DetalleProducto` failed: timeout 30000ms exceeded
+2024-07-02T01:21:49.459Z - Fin de la funcion getProductPrice
+2024-07-02T01:21:49.459Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=7396
+2024-07-02T01:21:49.460Z - Error al conectarse a la web: TimeoutError: waiting for selector `#DetalleProducto` failed: timeout 30000ms exceeded
+2024-07-02T01:21:49.460Z - Fin de la funcion getProductPrice
+2024-07-02T01:21:49.461Z - No se encontraron datos para URL: https://lk.cl/#!/Producto=7392
+2024-07-02T01:21:49.612Z - El Script terminó de ejecutarse 
+-------------------------------------------

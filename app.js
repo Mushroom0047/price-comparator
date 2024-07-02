@@ -2,16 +2,18 @@ const { updateProductList } = require('./src/services/updateProductList');
 const { getProductPrice } = require('./src/services/getProductPrice');
 const { createLogMessage } = require('./src/utils/createLog');
 const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
+const { createBrowser } = require('./src/services/createBrowser');
 
 async function main() {
   try {
     createLogMessage('Inicio de script');
+    const browser = await createBrowser();
     
-    // Uso de Promise.all para concurrencia controlada
+    // Map para crear un array de promesas
     const promises = listadoUrls.map(async (url) => {
-      createLogMessage(`Procesando URL: ${url}`);
+      
       try {
-        const productData = await getProductPrice(url);
+        const productData = await getProductPrice(url, browser);
         if (productData) {
           await updateProductList(productData);
         } else {
@@ -24,9 +26,12 @@ async function main() {
 
     // Espera a que todas las promesas se resuelvan
     await Promise.all(promises);
-
-    createLogMessage("El Script termino de ejecutarse \n-------------------------------------------");
+    await browser.close();
+    createLogMessage("El Script terminó de ejecutarse \n-------------------------------------------");
   } catch (error) {
+    if(browser){
+      await browser.close();
+    }
     createLogMessage(`Error en main: ${error.message}`);
   }
 }

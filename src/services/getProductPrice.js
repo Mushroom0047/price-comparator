@@ -3,7 +3,7 @@ const { cleanAndParseValue } = require('../utils/cleanAndParseValue');
 const { createLogMessage } = require('../utils/createLog');
 const puppeteer = require('puppeteer');
 
-async function getProductPrice(url) {
+async function getProductPrice(url, browser) {
     createLogMessage(`Inicio de la funcion getProductPrice para: ${url}`);
     let id = 0;
     let currentDate = generateCurrentDate();
@@ -11,14 +11,6 @@ async function getProductPrice(url) {
     let product = null;
   
     try {
-      const browser = await puppeteer.launch({
-        headless: true,
-        executablePath: puppeteer.executablePath(), // Asegura que Puppeteer use la ruta correcta de Chrome
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox'
-        ]
-      });
       const page = await browser.newPage();
   
       await page.goto(url);
@@ -57,12 +49,13 @@ async function getProductPrice(url) {
         product = null;
         createLogMessage(`No se pudo obtener el precio del producto: productPrice: ${product}`);
       }
-  
-      await browser.close();
-  
+
+      await page.close();
       return product;
   
     } catch (error) {
+      if (browser) {
+      }
       createLogMessage(`Error al conectarse a la web: ${error}`);
     }
   
