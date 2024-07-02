@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const logFilePath = path.resolve(__dirname, '../Logs/log.txt');
+const logFilePath = path.resolve(__dirname, '..', 'Logs', 'log.txt');
 console.log(logFilePath);
 
 function createLogMessage(message) {

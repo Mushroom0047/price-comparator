@@ -1,7 +1,6 @@
 const { generateCurrentDate } = require('../utils/generateCurrentDate'); 
 const { cleanAndParseValue } = require('../utils/cleanAndParseValue'); 
 const { createLogMessage } = require('../utils/createLog');
-const puppeteer = require('puppeteer');
 
 async function getProductPrice(url, browser) {
     createLogMessage(`Inicio de la funcion getProductPrice para: ${url}`);
