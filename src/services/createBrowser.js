@@ -5,7 +5,6 @@ async function createBrowser(){
     try{
         const browser = await puppeteer.launch({
             headless: true,
-            executablePath: puppeteer.executablePath(), // Asegura que Puppeteer use la ruta correcta de Chrome
             args: [
               '--no-sandbox',
               '--disable-setuid-sandbox',
