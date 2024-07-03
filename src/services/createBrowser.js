@@ -7,8 +7,6 @@ async function createBrowser(){
             headless: true,
             executablePath: '/usr/bin/chromium-browser',
             args: [
-              '--no-sandbox',
-              '--disable-setuid-sandbox',
               '--disable-dev-shm-usage', // Reduce el uso de /dev/shm
               '--single-process', // Ejecuta todo en un solo proceso
               '--disable-accelerated-2d-canvas',
