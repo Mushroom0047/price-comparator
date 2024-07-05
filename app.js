@@ -2,14 +2,44 @@ const { updateProductList } = require('./src/services/updateProductList');
 const { getProductPrice } = require('./src/services/getProductPrice');
 const { createLogMessage } = require('./src/utils/createLog');
 const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
-const { createBrowser } = require('./src/services/createBrowser');
+// const { createBrowser } = require('./src/services/createBrowser');
+
+const puppeteer = require('puppeteer');
+// const { createLogMessage } = require('../utils/createLog');
+
+// async function createBrowser(){
+//     try{
+//         const browser = await puppeteer.launch({
+//             headless: true,
+//             // executablePath: '/usr/bin/chromium-browser',
+//             args: [
+//               '--no-sandbox',
+//               '--disable-setuid-sandbox',
+//             ]
+//           });
+
+//           return browser;
+
+//     }catch(err){
+//         createLogMessage(`Error al crear el navegador: ${err}`);
+//         return null;
+//     }
+// }
 
 async function main() {
-  let browser;
+  // let browser;
   
   try {
     createLogMessage('Inicio de script');
-    browser = await createBrowser();
+    // browser = await createBrowser();
+    const browser = await puppeteer.launch({
+                  headless: true,
+                  // executablePath: '/usr/bin/chromium-browser',
+                  args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                  ]
+                });
 
     if (!browser) {
       console.log('Error: El objeto browser es null');
