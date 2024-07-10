@@ -11,8 +11,21 @@ async function getProductPrice(url, browser) {
   
     try {
       const page = await browser.newPage();
+
+      // Deshabilitar la carga de imágenes y otros recursos innecesarios
+      await page.setRequestInterception(true);
+      page.on('request', (request) => {
+        if (['image', 'stylesheet', 'font', 'media'].includes(request.resourceType())) {
+          request.abort();
+        } else {
+          request.continue();
+        }
+      });
   
-      await page.goto(url);
+      await page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 60000
+      });
       await page.waitForSelector('#DetalleProducto');
       const elementPrice = await page.$('.Detalle');
       const elementTitle = await page.$('#DetalleProducto h1');
