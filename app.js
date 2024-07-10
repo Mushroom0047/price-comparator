@@ -3,6 +3,7 @@ const { getProductPrice } = require('./src/services/getProductPrice');
 const { createLogMessage } = require('./src/utils/createLog');
 const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
 const puppeteer = require('puppeteer');
+require('dotenv').config();
 
 async function main() {
   let browser;
@@ -11,6 +12,7 @@ async function main() {
     createLogMessage('Inicio de script');
     browser = await puppeteer.launch({
       headless: true,
+      executablePath:process.env.PUPPETEER_EXECUTABLE_PATH, 
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',

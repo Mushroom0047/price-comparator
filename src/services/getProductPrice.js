@@ -22,10 +22,7 @@ async function getProductPrice(url, browser) {
         }
       });
   
-      await page.goto(url, {
-        waitUntil: 'networkidle2',
-        timeout: 60000
-      });
+      await page.goto(url);
       await page.waitForSelector('#DetalleProducto');
       const elementPrice = await page.$('.Detalle');
       const elementTitle = await page.$('#DetalleProducto h1');
