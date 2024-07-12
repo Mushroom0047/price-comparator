@@ -31,9 +31,7 @@ async function main() {
         const productData = await getProductPrice(url, browser);
         if (productData) {
           await updateProductList(productData);
-        } else {
-          createLogMessage(`No se encontraron datos para URL: ${url}`);
-        }
+        } 
       } catch (error) {
         createLogMessage(`Error procesando URL: ${url} - ${error.message}`);
       }

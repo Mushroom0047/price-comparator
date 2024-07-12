@@ -3,7 +3,6 @@ const { cleanAndParseValue } = require('../utils/cleanAndParseValue');
 const { createLogMessage } = require('../utils/createLog');
 
 async function getProductPrice(url, browser) {
-    createLogMessage(`Inicio de la funcion getProductPrice para: ${url}`);
     let id = 0;
     let currentDate = generateCurrentDate();
     let parcedPrice = null;
