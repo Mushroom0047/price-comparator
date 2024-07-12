@@ -4,6 +4,7 @@ const { createLogMessage } = require('./src/utils/createLog');
 const { listadoUrls } = require('./src/assets/ListadoUrlProductos');
 const puppeteer = require('puppeteer');
 require('dotenv').config();
+const cron = require('node-cron');
 
 async function main() {
   let browser;
@@ -51,7 +52,15 @@ async function main() {
   }
 }
 
-// Ejecutar la función inmediatamente al iniciar
+//Programar la función para que se ejecute cada 24 horas
+
+//5 minutos */5 * * * *
+//24 horas 0 0 * * *
+cron.schedule('*/5 * * * *', async () => {
+  await main();
+});
+
+//Ejecutar la función inmediatamente al iniciar
 (async () => {
   await main();
 })();
